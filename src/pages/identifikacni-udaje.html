@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Identifikační údaje provozovatele – Cukrové nebe</title>
+<meta name="description" content="Identifikační a kontaktní údaje provozovatele webu a cukrárny Cukrové nebe, Orlí 491/16, Brno.">
+{{> legal-head.html}}
+</head>
+<body>
+{{> consent.html}}
+{{> legal-header.html}}
+
+<main id="obsah" tabindex="-1">
+  <article class="doc wrap">
+    <p class="eyebrow">Právní informace</p>
+    <h1>Identifikační údaje provozovatele</h1>
+    <p class="lead">Údaje o provozovateli webu a cukrárny Cukrové nebe podle § 435 zákona č. 89/2012 Sb., občanský zákoník, a § 5 zákona č. 480/2004 Sb., o některých službách informační společnosti; je-li provozovatel obchodní korporací, též podle § 7 zákona č. 90/2012 Sb., o obchodních korporacích.</p>
+    <p class="meta">Poslední aktualizace: {{v:updated|datum aktualizace}}</p>
+
+    <h2>Provozovatel</h2>
+    <div class="card">
+      <dl class="idl">
+        <dt>Obchodní název provozovny</dt><dd>{{v:tradeName|obchodní název}}</dd>
+        <dt>Provozovatel (jméno a příjmení / obchodní firma)</dt><dd>{{v:operator.name|jméno a příjmení podnikatele, nebo obchodní firma}}</dd>
+        <dt>Právní forma</dt><dd>{{v:operator.legalForm|právní forma (např. fyzická osoba – podnikatel, s.r.o.)}}</dd>
+        <dt>Sídlo / místo podnikání</dt><dd>{{v:operator.seat|adresa sídla nebo místa podnikání}}</dd>
+        <dt>IČO</dt><dd>{{v:operator.ico|IČO}}</dd>
+        <dt>DIČ</dt><dd>{{v:operator.dic|DIČ, je-li provozovatel plátcem DPH; jinak uveďte „neplátce DPH“}}</dd>
+        <dt>Zápis v rejstříku</dt><dd>{{v:operator.registration|u obchodní společnosti zápis v obchodním rejstříku (soud, oddíl, vložka); u fyzické osoby zápis v živnostenském rejstříku}}</dd>
+        <dt>Orgán dozoru</dt><dd>{{v:operator.supervision|příslušný živnostenský úřad, případně další dozorový orgán, je-li to pro činnost relevantní}}</dd>
+      </dl>
+    </div>
+
+    <h2>Provozovna</h2>
+    <div class="card">
+      <dl class="idl">
+        <dt>Adresa</dt><dd>{{v:tradeName|obchodní název}}, {{v:premises|adresa provozovny}}</dd>
+      </dl>
+    </div>
+
+    <h2>Kontakt</h2>
+    <div class="card">
+      <dl class="idl">
+        <dt>E-mail</dt><dd>{{v:operator.email|kontaktní e-mail}}</dd>
+        <dt>Telefon</dt><dd>{{v:operator.phone|telefon}}</dd>
+        <dt>Datová schránka</dt><dd>{{v:operator.dataBox|ID datové schránky, pokud ji provozovatel má}}</dd>
+        <dt>Instagram</dt><dd><a href="{{v:instagram|odkaz na Instagram}}" rel="noopener noreferrer">{{v:instagramHandle|Instagram}}</a></dd>
+        <dt>Facebook</dt><dd><a href="{{v:facebook|odkaz na Facebook}}" rel="noopener noreferrer">Cukrové nebe</a></dd>
+      </dl>
+    </div>
+
+    <h2>Ochrana spotřebitele</h2>
+    <p>Dozor nad dodržováním povinností při prodeji zboží a poskytování služeb spotřebitelům vykonává Česká obchodní inspekce, <a href="https://coi.gov.cz/" rel="noopener noreferrer">coi.gov.cz</a>. Spotřebitel může v případě sporu, který se nepodaří vyřešit přímo s provozovatelem, podat návrh na <a href="https://coi.gov.cz/informace-o-adr/" rel="noopener noreferrer">mimosoudní řešení spotřebitelského sporu</a> u České obchodní inspekce.</p>
+
+    <h2>Další informace</h2>
+    <ul>
+      <li><a href="ochrana-osobnich-udaju.html">Zásady ochrany osobních údajů</a></li>
+      <li><a href="zasady-cookies.html">Zásady používání cookies</a></li>
+      <li><a href="index.html#pravni-podminky">Podmínky rezervace</a></li>
+    </ul>
+
+    {{#if operator.ico}}{{else}}<p class="todo-note"><strong>Před zveřejněním:</strong> údaje označené [DOPLNIT] musí doplnit provozovatel v souboru <code>src/site.json</code>. Údaje musí odpovídat zápisu v obchodním nebo živnostenském rejstříku. Položky, které se na provozovatele nevztahují (např. DIČ u neplátce DPH, datová schránka), upravte podle skutečnosti.</p>{{/if}}
+  </article>
+</main>
+
+{{> legal-footer.html}}
+</body>
+</html>

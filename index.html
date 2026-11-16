@@ -6,15 +6,18 @@
 <title>Cukrové nebe – cukrárna Brno</title>
 <meta name="description" content="Cukrové nebe – cukrárna, Orlí 491/16, Brno. Dorty, zákusky a káva. Rezervujte si termín online.">
 <meta name="theme-color" content="#262820">
-<script>(function(){
+<script>/* theme before first paint (saved choice, else system setting) + enables scroll-reveal motion */
+(function(){
   var t=null;try{var m=document.cookie.match(/(?:^|; )cn_theme=(light|dark)/);t=m&&m[1]}catch(e){}
   if(!t)t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";
   var d=document.documentElement;d.setAttribute("data-theme",t);
   if("IntersectionObserver"in window&&!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){
     d.classList.add("anim");setTimeout(function(){if(!d.hasAttribute("data-ready"))d.classList.remove("anim")},3000);
   }
-})();</script>
+})();
+</script>
 <style>
+/* design tokens shared by every page – Calm Seasons palette (dark = autumn evening) */
 :root{--cream:#fcf9f1;--dark:#3b3226;--ease:cubic-bezier(.22,1,.36,1);
 --script:"DejaVu Serif",Georgia,"Times New Roman",serif;--sans:"DejaVu Sans",Verdana,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 --r-arch:999px 999px 22px 22px;--r-leaf:30px 6px 30px 6px;--r-leaf2:6px 30px 6px 30px;--r-bubble:26px 26px 26px 6px;--r-soft:20px;
@@ -32,6 +35,7 @@
  --tint-sage:#cfd9bb;--tint-clay:#ecc9b2;--ring:rgba(154,74,43,.4);--shadow:70,55,30;--h1span:#b9582f;
  --hero-bg:radial-gradient(900px 440px at 88% -5%,rgba(217,138,98,.24),transparent 62%),radial-gradient(760px 420px at 0 105%,rgba(127,148,103,.26),transparent 60%);
  --book-bg:linear-gradient(180deg,#f5f0e4,#e2e7cf 300%)}
+
 
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:104px;overflow-x:clip}
@@ -275,17 +279,14 @@ input,textarea{width:100%;border:2px solid #e3dac4;border-radius:14px;padding:12
 
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mute);font-size:.9rem;text-align:center}
 .legalnav{display:flex;flex-wrap:wrap;justify-content:center;gap:0 16px;margin:0 0 8px}
+.footbtn{display:inline-flex;align-items:center;min-height:44px;font:inherit;color:var(--accent);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.footbtn:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:4px}
 
 /* sticky mobile CTA */
 .fab{position:fixed;inset:auto 16px 16px 16px;z-index:15;display:none}
 .fab .btn{width:100%;box-shadow:0 10px 30px rgba(0,0,0,.5)}
 
 /* cookie bar + dialog */
-.cookiebar{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;background:var(--cream);color:var(--dark);border-radius:18px;padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 12px 40px rgba(0,0,0,.5);max-width:760px;margin-inline:auto;font-size:.9rem}
-.cookiebar[hidden]{display:none}
-.cookiebar p{margin:0;flex:1 1 260px}.cookiebar a{color:#9a4a2b}
-.cookiebar .btn{padding:10px 22px}
-.cookiebar:not([hidden])~.fab{bottom:110px}
 dialog{border:0;border-radius:22px;max-width:720px;width:calc(100% - 32px);background:var(--cream);color:var(--dark);max-height:88vh;overflow:auto;padding:18px 20px 20px;margin:auto}
 dialog::backdrop{background:rgba(0,0,0,.6)}
 dialog h2{font-size:1.35rem;margin:6px 0 8px}dialog h3{font-size:1rem;margin:16px 0 6px;font-family:var(--sans)}
@@ -300,7 +301,7 @@ dialog li,dialog p{margin:0 0 8px;font-size:.92rem}dialog a{color:#9a4a2b}
 .ltab th,.ltab td{text-align:left;vertical-align:top;padding:7px 8px;border-bottom:1px solid #e3dac4}
 .ltab th{color:#6a6150;font-weight:600}
 .dlgbtns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin-top:12px}
-dialog .btn.ghost,.cookiebar .btn.ghost{color:var(--dark);border-color:#d6ccb3}
+dialog .btn.ghost{color:var(--dark);border-color:#d6ccb3}
 mark.todo{background:#f3dfa8;color:#5d4a2e;padding:0 5px;border-radius:5px;font-weight:600;font-size:.88em}
 
 /* motion */
@@ -317,7 +318,6 @@ mark.todo{background:#f3dfa8;color:#5d4a2e;padding:0 5px;border-radius:5px;font-
   .ok{animation:stepin .45s var(--ease) both}
   .ok .tick{animation:pop .6s var(--ease) .1s both}
   .err:not(:empty){animation:rise .3s var(--ease) both}
-  .cookiebar:not([hidden]){animation:sheet .5s var(--ease) .6s both}
   dialog[open]{animation:pop2 .28s var(--ease) both}
   dialog[open]::backdrop{animation:fade .28s ease both}
   html.theme-fade,html.theme-fade *,html.theme-fade *::before,html.theme-fade *::after{transition:background-color .4s ease,color .4s ease,border-color .4s ease,fill .4s ease!important}
@@ -418,9 +418,6 @@ mark.todo{background:#f3dfa8;color:#5d4a2e;padding:0 5px;border-radius:5px;font-
   .mapgate .btn{max-width:none;width:auto}
   .boxlink{margin-top:2px}.boxbtns{margin-top:8px}
   footer{padding:16px 0 96px;font-size:.85rem}
-  .cookiebar{left:10px;right:10px;bottom:10px;padding:10px 14px;gap:8px 12px;border-radius:16px;font-size:.84rem;line-height:1.4}
-  .cookiebar .btn{padding:8px 20px}
-  .cookiebar:not([hidden])~.fab{bottom:96px}
   .fab{display:block;opacity:0;visibility:hidden;transform:translate3d(0,140%,0);transition:transform .35s var(--ease),opacity .25s,visibility 0s linear .35s}
   .fab.show{opacity:1;visibility:visible;transform:none;transition:transform .35s var(--ease),opacity .25s,visibility 0s}
   .idl{grid-template-columns:1fr;gap:0}.idl dd{margin-bottom:8px}
@@ -432,9 +429,142 @@ mark.todo{background:#f3dfa8;color:#5d4a2e;padding:0 5px;border-radius:5px;font-
 @media(max-width:430px){.bar .btn{padding:10px 14px;font-size:.92rem}.actions{gap:8px}}
 @media(max-width:380px){.about .btn{white-space:normal}.brand img{width:60px;height:60px}.bar .btn{padding:8px 12px;font-size:.88rem}.actions{gap:6px}.hero .wrap{grid-template-columns:1fr 100px}.hero h1{font-size:2.1rem}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.btn:hover{transform:none}}
+/* ===================== cookie consent ===================== */
+.cn-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.cn-banner{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;padding:0;max-width:880px;margin-inline:auto;background:var(--cream);color:var(--dark);
+  border-radius:20px;box-shadow:0 18px 50px -12px rgba(0,0,0,.55),0 0 0 1px rgba(80,64,36,.12);font:15px/1.5 var(--sans)}
+.cn-banner[hidden]{display:none}
+.cn-inner{display:flex;flex-direction:column;gap:14px;padding:18px 20px}
+.cn-banner h2,.cn-dialog h2{font:700 1.08rem/1.3 var(--sans);margin:0 0 4px;color:var(--dark)}
+.cn-banner p{margin:0;color:#4a4033}
+.cn-banner a,.cn-dialog a{color:#9a4a2b}
+.cn-actions{display:flex;flex-wrap:wrap;gap:8px}
+/* all choices look exactly the same: accepting is not easier than refusing */
+.cn-btn{flex:1 1 0;min-width:max-content;min-height:44px;padding:10px 18px;border-radius:999px;border:1.5px solid #8a7b62;background:#fff;color:var(--dark);
+  font:700 .95rem/1.2 var(--sans);cursor:pointer;transition:background-color .2s,border-color .2s,transform .18s var(--ease)}
+.cn-btn:hover{border-color:#9a4a2b;background:#f6e3d6}
+.cn-btn:active{transform:scale(.97)}
+.cn-btn:focus-visible,.cn-x:focus-visible,.cn-switch input:focus-visible+.cn-track{outline:3px solid #4f6f50;outline-offset:2px}
+.cn-banner a:focus-visible,.cn-dialog a:focus-visible{outline:3px solid #4f6f50;outline-offset:2px;border-radius:3px}
+
+.cn-dialog{border:0;border-radius:22px;padding:0;width:calc(100% - 24px);max-width:640px;max-height:90vh;overflow:auto;background:var(--cream);color:var(--dark);font:15px/1.5 var(--sans)}
+.cn-dialog::backdrop{background:rgba(0,0,0,.55)}
+.cn-dialog form{padding:20px 22px 22px}
+.cn-d-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.cn-x{flex:none;display:grid;place-items:center;width:44px;height:44px;margin:-8px -8px 0 0;border-radius:50%;border:0;background:transparent;color:var(--dark);cursor:pointer}
+.cn-x:hover{background:#efe6d2}
+.cn-x svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.cn-d-lead{margin:6px 0 14px;color:#4a4033}
+.cn-cats{border:0;margin:0;padding:0;display:grid;gap:10px}
+.cn-cat{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;background:#fff;border:1.5px solid #e3dac4;border-radius:16px;padding:14px 16px}
+.cn-cat h3{font:700 1rem/1.3 var(--sans);margin:0 0 2px}
+.cn-cat p{margin:0;font-size:.9rem;color:#5a5040}
+.cn-cat strong{font-weight:600;color:var(--dark)}
+.cn-switch{flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;min-width:72px;padding-top:2px}
+.cn-switch input{position:absolute;opacity:0;width:52px;height:30px;margin:0;cursor:pointer}
+.cn-track{position:relative;display:block;width:52px;height:30px;border-radius:999px;background:#cfc5ad;transition:background-color .2s}
+.cn-track::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .25s var(--ease)}
+.cn-switch input:checked+.cn-track{background:#4f6f50}
+.cn-switch input:checked+.cn-track::after{transform:translateX(22px)}
+.cn-switch input:disabled{cursor:not-allowed}
+.cn-switch input:disabled+.cn-track{background:#7d8f6e;opacity:.75}
+.cn-state{font-size:.75rem;font-weight:600;color:#5a5040;white-space:nowrap}
+.cn-onoff::after{content:"Vypnuto"}
+.cn-switch input:checked~.cn-onoff::after{content:"Zapnuto"}
+.cn-d-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+
+/* the floating "book" button must not cover the banner */
+html.cn-open .fab{display:none!important}
+
+@media (max-width:640px){
+  .cn-banner{left:8px;right:8px;bottom:8px;border-radius:18px;font-size:14px}
+  .cn-inner{padding:14px 14px 12px;gap:10px}
+  .cn-actions{flex-direction:column}
+  .cn-btn{width:100%}
+  .cn-dialog form{padding:16px 14px 16px}
+  .cn-cat{padding:12px}
+  .cn-d-actions{flex-direction:column}
+}
+@media (prefers-reduced-motion:no-preference){
+  .cn-banner:not([hidden]){animation:cn-up .45s var(--ease) both}
+  .cn-dialog[open]{animation:cn-pop .25s var(--ease) both}
+}
+@keyframes cn-up{from{opacity:0;transform:translate3d(0,24px,0)}to{opacity:1;transform:none}}
+@keyframes cn-pop{from{opacity:0;transform:translate3d(0,10px,0) scale(.98)}to{opacity:1;transform:none}}
+
 </style>
 </head>
 <body>
+<!-- cookie consent: banner (first in the page so keyboard users reach it first), preferences dialog, live status -->
+<section class="cn-banner" id="cn-banner" aria-labelledby="cn-title" aria-describedby="cn-desc" hidden>
+  <div class="cn-inner">
+    <div class="cn-text">
+      <h2 id="cn-title">Cookies na tomto webu</h2>
+      <p id="cn-desc">Nezbytné cookies potřebujeme, aby web fungoval, a používáme je vždy. Volitelné cookies a obsah třetích stran (mapa Google) použijeme jen s&nbsp;vaším souhlasem. Volbu můžete kdykoli změnit odkazem „Nastavení cookies“ v&nbsp;patičce. <a href="zasady-cookies.html">Zásady používání cookies</a></p>
+    </div>
+    <div class="cn-actions">
+      <button type="button" class="cn-btn" data-cn="accept">Přijmout všechny</button>
+      <button type="button" class="cn-btn" data-cn="reject">Odmítnout všechny</button>
+      <button type="button" class="cn-btn" data-cn="settings" aria-haspopup="dialog">Nastavení cookies</button>
+    </div>
+  </div>
+</section>
+
+<dialog class="cn-dialog" id="cn-dialog" aria-labelledby="cn-d-title">
+  <form id="cn-form" method="dialog">
+    <div class="cn-d-head">
+      <h2 id="cn-d-title">Nastavení cookies</h2>
+      <button type="button" class="cn-x" data-cn="close" aria-label="Zavřít nastavení cookies">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="cn-d-lead">Vyberte, s čím souhlasíte. Volitelné kategorie jsou ve výchozím stavu vypnuté. Souhlas můžete kdykoli odvolat stejně snadno, jako jste jej udělili. Podrobnosti najdete v&nbsp;<a href="zasady-cookies.html">Zásadách používání cookies</a>.</p>
+
+    <fieldset class="cn-cats">
+      <legend class="cn-sr">Kategorie cookies</legend>
+
+      <div class="cn-cat">
+        <div class="cn-cat-text">
+          <h3 id="cn-l-nec">Nezbytné</h3>
+          <p id="cn-d-nec">Zajišťují základní fungování webu a uložení vaší volby cookies a vzhledu (světlý / tmavý režim). Bez nich web nefunguje správně, proto je nelze vypnout.</p>
+        </div>
+        <label class="cn-switch"><input type="checkbox" checked disabled aria-labelledby="cn-l-nec" aria-describedby="cn-d-nec"><span class="cn-track" aria-hidden="true"></span><span class="cn-state">Vždy aktivní</span></label>
+      </div>
+
+      <div class="cn-cat">
+        <div class="cn-cat-text">
+          <h3 id="cn-l-an">Analytické</h3>
+          <p id="cn-d-an">Pomáhají měřit návštěvnost a zlepšovat web. <strong>Web v současnosti žádné analytické nástroje nepoužívá.</strong></p>
+        </div>
+        <label class="cn-switch"><input type="checkbox" name="analytics" aria-labelledby="cn-l-an" aria-describedby="cn-d-an"><span class="cn-track" aria-hidden="true"></span><span class="cn-state cn-onoff"></span></label>
+      </div>
+
+      <div class="cn-cat">
+        <div class="cn-cat-text">
+          <h3 id="cn-l-mk">Marketingové</h3>
+          <p id="cn-d-mk">Slouží k zobrazování a měření reklamy. <strong>Web v současnosti žádné marketingové nástroje nepoužívá.</strong></p>
+        </div>
+        <label class="cn-switch"><input type="checkbox" name="marketing" aria-labelledby="cn-l-mk" aria-describedby="cn-d-mk"><span class="cn-track" aria-hidden="true"></span><span class="cn-state cn-onoff"></span></label>
+      </div>
+
+      <div class="cn-cat">
+        <div class="cn-cat-text">
+          <h3 id="cn-l-map">Obsah třetích stran – mapa Google</h3>
+          <p id="cn-d-map">Načte interaktivní mapu Google v&nbsp;sekci Kontakt. Google přitom získá vaši IP adresu a údaje o prohlížeči a může ukládat vlastní cookies.</p>
+        </div>
+        <label class="cn-switch"><input type="checkbox" name="maps" aria-labelledby="cn-l-map" aria-describedby="cn-d-map"><span class="cn-track" aria-hidden="true"></span><span class="cn-state cn-onoff"></span></label>
+      </div>
+    </fieldset>
+
+    <div class="cn-d-actions">
+      <button type="button" class="cn-btn" data-cn="reject">Odmítnout všechny</button>
+      <button type="button" class="cn-btn" data-cn="save">Uložit výběr</button>
+      <button type="button" class="cn-btn" data-cn="accept">Přijmout všechny</button>
+    </div>
+  </form>
+</dialog>
+<p class="cn-sr" id="cn-status" role="status" aria-live="polite"></p>
+
 
 <header>
   <div class="wrap bar">
@@ -546,23 +676,235 @@ mark.todo{background:#f3dfa8;color:#5d4a2e;padding:0 5px;border-radius:5px;font-
 <footer>
   <div class="wrap">
     <nav class="legalnav" aria-label="Právní informace">
-      <a href="#pravni-osobni" data-legal="osobni">Osobní údaje</a>
-      <a href="#pravni-cookies" data-legal="cookies">Cookies</a>
-      <a href="#pravni-podminky" data-legal="podminky">Podmínky a reklamace</a>
-      <a href="#pravni-provozovatel" data-legal="provozovatel">Provozovatel</a>
-      <a href="#pravni-pristupnost" data-legal="pristupnost">Přístupnost</a>
+      <a href="ochrana-osobnich-udaju.html">Ochrana osobních údajů</a>
+      <a href="zasady-cookies.html">Zásady používání cookies</a>
+      <a href="identifikacni-udaje.html">Identifikační údaje</a>
+      <a href="index.html#pravni-podminky" data-legal="podminky">Podmínky rezervace</a>
+      <a href="index.html#pravni-pristupnost" data-legal="pristupnost">Přístupnost</a>
+      <button type="button" class="footbtn" data-cn-open aria-haspopup="dialog">Nastavení cookies</button>
     </nav>
     <p id="copy"></p>
   </div>
 </footer>
 
-<div class="cookiebar" id="cookiebar" role="region" aria-label="Cookies" hidden>
-  <p>Web používá jen <b>nezbytné cookies</b> (uložení vašich voleb). Žádnou analytiku ani reklamu nepoužíváme. Mapa Google se načte, až když o to požádáte. <a href="#pravni-cookies" data-legal="cookies">Podrobnosti</a></p>
-  <button class="btn" type="button" id="cookieOk">Rozumím</button>
-</div>
 <div class="fab" id="fab"><a class="btn big" href="#rezervace">Rezervovat termín</a></div>
 <dialog class="legal" id="legal" aria-labelledby="pTitle"><div class="ltabs" role="tablist" aria-label="Právní informace" id="ltabs"></div><div role="tabpanel" id="lbody"></div><div class="dlgbtns"><button class="btn" type="button" id="lclose">Zavřít</button></div></dialog>
 
+<script>/* =====================================================================
+   Cookie consent – Cukrové nebe
+   Consent under § 89 odst. 3 zák. č. 127/2005 Sb. and čl. 4 bod 11, čl. 7 GDPR.
+
+   - Nothing optional runs before a valid choice: optional scripts are written as a script element
+     with type="text/plain", data-consent="analytics|marketing" and data-cookies="_ga,_ga_*"
+     (their cookie names, so they can be deleted on withdrawal); this module executes them only
+     after the matching category is granted. (No closing script tag in this comment: the file is
+     inlined into an HTML script element.)
+   - Categories: necessary (always on), analytics, marketing, maps (Google Maps embed).
+     Optional categories are never pre-selected.
+   - The choice + timestamp + version are stored in the first-party cookie "cn_consent"
+     (mirrored to localStorage so it also works where cookies are blocked, e.g. file://).
+   - Raise CONSENT_VERSION whenever a new tool or purpose is added: everyone is asked again.
+   - Public API: window.CNConsent.{get, has, update, open, onChange}
+   ===================================================================== */
+(function () {
+  "use strict";
+
+  var KEY = "cn_consent";
+  var CONSENT_VERSION = 1;
+  var MAX_AGE_DAYS = 180;                       // how long a choice is kept before asking again
+  var OPTIONAL = ["analytics", "marketing", "maps"];
+  var LEGACY_COOKIES = ["cn_maps"];             // replaced by the "maps" category
+
+  var state = null;
+  var listeners = [];
+  var lastFocus = null;
+
+  /* ---------- storage ---------- */
+  function readCookie(name) {
+    try {
+      var m = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
+      return m ? decodeURIComponent(m[1]) : null;
+    } catch (e) { return null; }
+  }
+  function parse(raw) {
+    if (!raw) return null;
+    try {
+      var s = JSON.parse(raw);
+      if (!s || s.v !== CONSENT_VERSION || typeof s.ts !== "string") return null;
+      var age = Date.now() - Date.parse(s.ts);
+      if (!(age >= 0) || age > MAX_AGE_DAYS * 864e5) return null;   // expired or invalid → ask again
+      var clean = { v: s.v, ts: s.ts, necessary: true };
+      OPTIONAL.forEach(function (c) { clean[c] = s[c] === true; });
+      return clean;
+    } catch (e) { return null; }
+  }
+  /* the cookie is the record; localStorage is used only where cookies cannot be written
+     (so clearing cookies in the browser also clears the consent) */
+  var cookiesWork = (function () {
+    try {
+      document.cookie = "cn_t=1; path=/; SameSite=Lax";
+      var ok = document.cookie.indexOf("cn_t=1") > -1;
+      document.cookie = "cn_t=; max-age=0; path=/";
+      return ok;
+    } catch (e) { return false; }
+  })();
+  function load() {
+    if (cookiesWork) {
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      return parse(readCookie(KEY));
+    }
+    try { return parse(localStorage.getItem(KEY)); } catch (e) { return null; }
+  }
+  function persist(s) {
+    var raw = JSON.stringify(s);
+    if (cookiesWork) {
+      document.cookie = KEY + "=" + encodeURIComponent(raw) + "; max-age=" + MAX_AGE_DAYS * 86400 +
+        "; path=/; SameSite=Lax" + (location.protocol === "https:" ? "; Secure" : "");
+    } else {
+      try { localStorage.setItem(KEY, raw); } catch (e) {}
+    }
+  }
+
+  /* delete first-party cookies by name; a trailing * matches a prefix (e.g. "_ga_*") */
+  function deleteCookies(patterns) {
+    if (!patterns.length) return;
+    var names = [];
+    try { names = document.cookie.split("; ").map(function (c) { return c.split("=")[0]; }); } catch (e) { return; }
+    var host = location.hostname, domains = ["", host];
+    var parts = host.split(".");
+    for (var i = 1; i < parts.length - 1; i++) domains.push("." + parts.slice(i).join("."));
+    names.forEach(function (n) {
+      var hit = patterns.some(function (p) { return p.slice(-1) === "*" ? n.indexOf(p.slice(0, -1)) === 0 : n === p; });
+      if (!hit) return;
+      domains.forEach(function (d) {
+        document.cookie = n + "=; max-age=0; path=/" + (d ? "; domain=" + d : "");
+      });
+    });
+  }
+
+  /* ---------- gated scripts ---------- */
+  function gated() { return Array.prototype.slice.call(document.querySelectorAll('script[type="text/plain"][data-consent]')); }
+  function activateScripts() {
+    gated().forEach(function (s) {
+      if (s.hasAttribute("data-cn-done") || !has(s.getAttribute("data-consent"))) return;
+      var n = document.createElement("script");
+      Array.prototype.forEach.call(s.attributes, function (a) {
+        if (a.name !== "type" && a.name !== "data-consent" && a.name !== "data-cookies") n.setAttribute(a.name, a.value);
+      });
+      if (!s.src) n.text = s.text;
+      s.setAttribute("data-cn-done", "");
+      s.parentNode.insertBefore(n, s.nextSibling);
+    });
+  }
+  function cookiesOf(category) {
+    var list = [];
+    gated().forEach(function (s) {
+      if (s.getAttribute("data-consent") === category && s.getAttribute("data-cookies"))
+        list = list.concat(s.getAttribute("data-cookies").split(",").map(function (x) { return x.trim(); }).filter(Boolean));
+    });
+    return list;
+  }
+
+  /* ---------- public helpers ---------- */
+  function has(category) {
+    if (category === "necessary") return true;
+    return !!(state && state[category] === true);
+  }
+  function get() { return state ? JSON.parse(JSON.stringify(state)) : null; }
+  function onChange(fn) { listeners.push(fn); }
+
+  function save(choice) {
+    var prev = state;
+    var next = { v: CONSENT_VERSION, ts: new Date().toISOString(), necessary: true };
+    OPTIONAL.forEach(function (c) { next[c] = choice[c] === true; });
+    state = next;
+    persist(next);
+    hideBanner();
+    announce("Nastavení cookies bylo uloženo.");
+
+    // withdrawn categories: remove their cookies; scripts that already ran can only be stopped by a reload
+    var revoked = OPTIONAL.filter(function (c) { return prev && prev[c] && !next[c]; });
+    var needsReload = false;
+    revoked.forEach(function (c) {
+      deleteCookies(cookiesOf(c));
+      if (gated().some(function (s) { return s.getAttribute("data-consent") === c && s.hasAttribute("data-cn-done"); })) needsReload = true;
+    });
+    listeners.forEach(function (fn) { try { fn(get()); } catch (e) {} });
+    try { document.dispatchEvent(new CustomEvent("cn:change", { detail: get() })); } catch (e) {}
+    if (needsReload) { location.reload(); return; }
+    activateScripts();
+  }
+  function update(partial) {
+    var choice = {};
+    OPTIONAL.forEach(function (c) { choice[c] = has(c); });
+    Object.keys(partial || {}).forEach(function (k) { if (OPTIONAL.indexOf(k) > -1) choice[k] = partial[k] === true; });
+    save(choice);
+  }
+  function all(value) { var c = {}; OPTIONAL.forEach(function (k) { c[k] = value; }); return c; }
+
+  /* ---------- UI ---------- */
+  var banner, dialog, form, status;
+  function announce(msg) { if (status) { status.textContent = ""; setTimeout(function () { status.textContent = msg; }, 50); } }
+  function showBanner() {
+    if (!banner) return;
+    banner.hidden = false;
+    document.documentElement.classList.add("cn-open");
+  }
+  function hideBanner() {
+    if (!banner) return;
+    banner.hidden = true;
+    document.documentElement.classList.remove("cn-open");
+  }
+  function open(opener) {
+    if (!dialog) return;
+    lastFocus = opener || document.activeElement;
+    OPTIONAL.forEach(function (c) { var i = form.elements[c]; if (i) i.checked = has(c); });
+    if (dialog.showModal) { if (!dialog.open) dialog.showModal(); } else dialog.setAttribute("open", "");
+  }
+  function close() {
+    if (dialog && dialog.open) dialog.close ? dialog.close() : dialog.removeAttribute("open");
+  }
+
+  function init() {
+    banner = document.getElementById("cn-banner");
+    dialog = document.getElementById("cn-dialog");
+    form = document.getElementById("cn-form");
+    status = document.getElementById("cn-status");
+
+    deleteCookies(LEGACY_COOKIES);
+    if (state) activateScripts(); else showBanner();
+
+    document.addEventListener("click", function (e) {
+      var t = e.target.closest && e.target.closest("[data-cn], [data-cn-open]");
+      if (!t) return;
+      if (t.hasAttribute("data-cn-open")) { e.preventDefault(); open(t); return; }
+      var a = t.getAttribute("data-cn");
+      if (a === "accept") { save(all(true)); close(); }
+      else if (a === "reject") { save(all(false)); close(); }
+      else if (a === "settings") open(t);
+      else if (a === "save") {
+        var c = {}; OPTIONAL.forEach(function (k) { c[k] = !!(form.elements[k] && form.elements[k].checked); });
+        save(c); close();
+      }
+      else if (a === "close") close();
+    });
+    if (dialog) dialog.addEventListener("close", function () {
+      var back = lastFocus && document.contains(lastFocus) && lastFocus.offsetParent !== null ? lastFocus : null;
+      if (!back && banner && !banner.hidden) back = banner.querySelector("button");
+      if (back) back.focus();
+    });
+    // a choice made in another tab of the same site
+    addEventListener("storage", function (e) { if (e.key === KEY) { state = load(); if (state) { hideBanner(); activateScripts(); } } });
+  }
+
+  state = load();
+  window.CNConsent = { get: get, has: has, update: update, open: open, onChange: onChange };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();
+</script>
+<!-- Volitelné skripty (analytika, reklama) vkládejte VÝHRADNĚ takto – spustí se až po souhlasu dané kategorie:
+<script type="text/plain" data-consent="analytics" data-cookies="_ga,_ga_*" src="https://…"></script>
+     a zároveň je popište v src/pages/zasady-cookies.html a zvyšte CONSENT_VERSION v src/partials/consent.js. -->
 <script>
 /* =====================================================================
    NASTAVENÍ – jediné místo, které je potřeba před spuštěním upravit.
@@ -572,7 +914,7 @@ const CONFIG = {
   demo: true,
   // Kam se rezervace odešlou (POST JSON) – např. Formspree, Make, Zapier, vlastní server.
   // Prázdné = rezervace se po potvrzení zkopíruje a otevře se zpráva na Instagramu.
-  bookingEndpoint: "",
+  bookingEndpoint: "",   // nastavuje se v src/site.json
   // Volitelné: URL pro zrušení rezervace (POST {id, token}). Prázdné = tlačítko „Zrušit“ se nezobrazí.
   cancelEndpoint: "",
   instagram: "cukrove_nebe",
@@ -594,10 +936,9 @@ const CONFIG = {
     {author:"Aneta Antlova", text:"Moc dobré dortíky, výborná limonáda a fajn, příjemné prostředí, doporučuji 😉", tags:[]},
     {author:"Míša Jirčíková", text:"Paní Ivo, moc děkuji za vše! Zákusky byly vynikající a dort nádherný. Jste úžasní!", tags:[]}
   ],
-  // Údaje pro právní stránky. Prázdné = na webu „doplní provozovatel“. Doplňte před ostrým spuštěním.
-  operator: {name:"", seat:"", ico:"", dic:"", vatPayer:null, registration:"", address:"", email:"", phone:""},
-  privacy:  {controller:"", retention:"", retentionDays:null, processors:""},
-  terms:    {pricing:"", payment:"", cancellation:"", allergens:""}
+  // Údaje provozovatele a podmínek – vyplňují se v src/site.json (sdílí je i právní stránky).
+  operator: {"name": "", "legalForm": "", "seat": "", "ico": "", "dic": "", "registration": "", "email": "", "phone": "", "dataBox": "", "supervision": ""},
+  terms: {"pricing": "", "payment": "", "cancellation": "", "allergens": ""}
 };
 /* ===================================================================== */
 
@@ -610,7 +951,6 @@ const reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce
 
 /* cookies (with in-memory fallback, e.g. when opened as a local file) */
 const mem = {};
-function getC(n){ try{ const m = document.cookie.match(new RegExp("(?:^|; )"+n+"=([^;]*)")); if(m) return m[1]; }catch(e){} return mem[n] || null; }
 function setC(n,v,days){ mem[n] = days ? v : null; try{ document.cookie = `${n}=${v}; max-age=${days*86400}; path=/; SameSite=Lax` + (location.protocol==="https:"?"; Secure":""); }catch(e){} }
 
 /* favicon from header logo (keeps the image in the file only once) */
@@ -720,7 +1060,7 @@ function render(){
         <label for="c">Telefon nebo e-mail</label><input id="c" name="contact" autocomplete="email" maxlength="120" required value="${esc(f.contact)}">
         <label for="m">Poznámka (nepovinné)</label><textarea id="m" name="note" rows="3" maxlength="500">${esc(f.note)}</textarea>
         <div class="hp" aria-hidden="true"><label>Web<input name="website" tabindex="-1" autocomplete="off" value="${esc(f.website)}"></label></div>
-        <label class="chk"><input type="checkbox" name="consent" ${f.consent?"checked":""}><span>Seznámil/a jsem se s <a href="#pravni-podminky" data-legal="podminky">podmínkami rezervace</a> a <a href="#pravni-osobni" data-legal="osobni">zásadami zpracování osobních údajů</a>. Jméno a kontakt použijeme jen k vyřízení rezervace.</span></label>
+        <label class="chk"><input type="checkbox" name="consent" ${f.consent?"checked":""}><span>Seznámil/a jsem se s <a href="#pravni-podminky" data-legal="podminky">podmínkami rezervace</a> a <a href="ochrana-osobnich-udaju.html" target="_blank" rel="noopener">zásadami ochrany osobních údajů<span class="cn-sr"> (otevře se v novém okně)</span></a>. Jméno a kontakt použijeme jen k vyřízení rezervace.</span></label>
       </form>`; }
     P.innerHTML = `<div class="steps" role="progressbar" aria-label="Krok rezervace" aria-valuemin="1" aria-valuemax="4" aria-valuenow="${s+1}" aria-valuetext="Krok ${s+1} ze 4">${[0,1,2,3].map(i => `<i class="${i<=s?"on":""}"></i>`).join("")}</div>
       <div class="stepin">${body}</div>${errBox()}
@@ -786,66 +1126,30 @@ render();
 /* ===================== map (loads only after consent) ===================== */
 const MAP_EMBED = "https://maps.google.com/maps?q=" + encodeURIComponent(CONFIG.address) + "&hl=cs&z=17&output=embed";
 function renderMap(){
-  const on = getC("cn_maps") === "1";
+  const on = window.CNConsent && CNConsent.has("maps");
   $("#map").innerHTML = on
     ? `<div class="mapframe"><iframe src="${MAP_EMBED}" title="Mapa: Cukrové nebe, Orlí 491/16, Brno" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe></div>
        <p class="mapnote">Mapa se nezobrazuje? <a href="${MAPS}" target="_blank" rel="noopener noreferrer">Otevřít v Google Maps →</a></p>
        <button class="linkbtn" type="button" data-map="off">Odvolat souhlas s mapou Google</button>`
-    : `<div class="mapframe"><div class="mapgate"><p>Interaktivní mapa Google se načte až po vašem kliknutí. Kliknutím souhlasíte s tím, že Google obdrží vaši IP adresu a může ukládat vlastní cookies.</p>
+    : `<div class="mapframe"><div class="mapgate"><p>Interaktivní mapa Google se načte až s vaším souhlasem. Kliknutím na tlačítko souhlasíte s tím, že Google obdrží vaši IP adresu a údaje o prohlížeči a může ukládat vlastní cookies. <a href="zasady-cookies.html#treti-strany">Více informací</a></p>
        <button class="btn" type="button" data-map="on">Načíst mapu Google</button><a href="${MAPS}" target="_blank" rel="noopener noreferrer">nebo otevřít v Google Maps →</a></div></div>`;
 }
-function setMap(on){ setC("cn_maps", on ? "1" : "", on ? 180 : 0); renderMap(); if (openDoc === "cookies") renderLegal(); }
+function setMap(on){ if (window.CNConsent) CNConsent.update({maps: on}); }
+document.addEventListener("cn:change", renderMap);   // consent given or withdrawn anywhere (banner, settings, map button)
 document.addEventListener("click", e => { const b = e.target.closest("[data-map]"); if (b) setMap(b.dataset.map === "on"); });
 renderMap();
 
-/* ===================== cookie bar ===================== */
-const bar = $("#cookiebar");
-bar.hidden = getC("cn_consent") === "1";
-$("#cookieOk").onclick = () => { setC("cn_consent","1",180); bar.hidden = true; };
-
 /* ===================== legal dialog ===================== */
-const TABS = [["provozovatel","Provozovatel"],["osobni","Osobní údaje"],["cookies","Cookies"],["podminky","Podmínky"],["pristupnost","Přístupnost"]];
-const UPDATED = "15. 11. 2026";
-const TODO = `<mark class="todo">doplní provozovatel</mark>`;
+const TABS = [["podminky","Podmínky rezervace"],["pristupnost","Přístupnost"]];
+// documents that moved to their own pages (old #pravni-… links keep working)
+const PAGES = {osobni:"ochrana-osobnich-udaju.html", cookies:"zasady-cookies.html", provozovatel:"identifikacni-udaje.html"};
+const UPDATED = "16. 11. 2026";
+const TODO = `<mark class="todo">[DOPLNIT]</mark>`;
 const v = x => x && String(x).trim() ? esc(x) : TODO;
 const ext = (h,t) => `<a href="${h}" target="_blank" rel="noopener noreferrer">${t}</a>`;
 const mail = o => o.email ? `<a href="mailto:${esc(o.email)}">${esc(o.email)}</a>` : TODO;
-const row = (l, cells) => `<tr>${cells.map((c,i) => `<td data-l="${l[i]}">${c}</td>`).join("")}</tr>`;
-const table = (head, rows) => `<table class="ltab"><thead><tr>${head.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r => row(head, r)).join("")}</tbody></table>`;
 
 const DOCS = {
-  provozovatel(){ const o = CONFIG.operator; return `<h2 id="pTitle">Provozovatel webu</h2>
-    <p>Informace podle § 435 občanského zákoníku (zákon č. 89/2012 Sb.), § 1820 občanského zákoníku a zákona č. 480/2004 Sb., o některých službách informační společnosti.</p>
-    <dl class="idl"><dt>Obchodní název</dt><dd>Cukrové nebe</dd><dt>Provozovatel (jméno a příjmení / obchodní firma)</dt><dd>${v(o.name)}</dd>
-    <dt>Sídlo / místo podnikání</dt><dd>${v(o.seat)}</dd><dt>IČO</dt><dd>${v(o.ico)}</dd>
-    <dt>DIČ</dt><dd>${o.dic ? esc(o.dic) : o.vatPayer === false ? "neplátce DPH" : TODO}</dd><dt>Zápis v evidenci</dt><dd>${v(o.registration)}</dd>
-    <dt>Provozovna</dt><dd>${esc(o.address || CONFIG.address)}</dd><dt>E-mail</dt><dd>${mail(o)}</dd>
-    <dt>Telefon</dt><dd>${o.phone ? `<a href="tel:${esc(o.phone.replace(/\s/g,""))}">${esc(o.phone)}</a>` : TODO}</dd></dl>
-    <p>Profily: ${ext(IG,"Instagram @"+CONFIG.instagram)}, ${ext("https://www.facebook.com/cukrovenebe/","Facebook Cukrové nebe")}.</p>
-    <p>Dozor nad dodržováním předpisů na ochranu spotřebitele vykonává ${ext("https://coi.gov.cz/","Česká obchodní inspekce")}.</p>`; },
-  osobni(){ const o = CONFIG.operator, p = CONFIG.privacy; return `<h2 id="pTitle">Zásady zpracování osobních údajů</h2>
-    <p>Informace podle čl. 13 nařízení (EU) 2016/679 (GDPR) a zákona č. 110/2019 Sb., o zpracování osobních údajů. Poslední aktualizace: ${UPDATED}.</p>
-    <h3>1. Správce</h3><p>${v(p.controller || o.name)}${o.ico ? ", IČO " + esc(o.ico) : ""}${o.seat ? ", " + esc(o.seat) : ""}. Kontakt pro záležitosti osobních údajů: ${mail(o)}.</p>
-    <h3>2. Jaké údaje, proč a na jakém základě</h3>
-    ${table(["Účel","Údaje","Právní základ"],[
-      ["Vyřízení rezervace termínu, komunikace o ní, případné zrušení","jméno, e-mail nebo telefon, poznámka, zvolená služba, datum a čas","čl. 6 odst. 1 písm. b) GDPR – opatření před uzavřením smlouvy na žádost zákazníka a její plnění"],
-      ["Doklad o seznámení s těmito zásadami","čas odeslání rezervace","čl. 6 odst. 1 písm. f) – oprávněný zájem prokázat, že jste byli informováni"],
-      ["Případné vymáhání nebo obrana právních nároků","údaje z rezervace","čl. 6 odst. 1 písm. f)"]])}
-    <p>Poskytnutí jména a kontaktu je nezbytné pro vyřízení rezervace; bez nich ji nelze přijmout. Poznámku vyplňujete dobrovolně – nepište do ní zdravotní ani jiné citlivé údaje, které není nutné sdělit (např. u alergií uveďte jen to, co je potřeba pro přípravu objednávky). Automatizované rozhodování ani profilování neprobíhá.</p>
-    <h3>3. Jak dlouho údaje uchováváme</h3><p>${p.retention ? esc(p.retention) : p.retentionDays ? `Rezervace se mažou ${p.retentionDays} dní po termínu.` : "Doba uložení: " + TODO}</p>
-    <h3>4. Komu údaje předáváme</h3><p>Údaje z rezervace nejsou prodávány ani předávány k reklamním účelům. Přístup k nim má provozovatel a zpracovatelé, přes které rezervace přichází (hosting, služba pro příjem formulářů${CONFIG.bookingEndpoint ? "" : ", případně Instagram, pokud rezervaci odešlete zprávou"}): ${v(p.processors)}.</p>
-    <p>Mapa Google se načte až po vašem kliknutí. Tím se vaše IP adresa a údaje o prohlížeči předají společnosti Google, která je zpracovává jako samostatný správce podle ${ext("https://policies.google.com/privacy","svých zásad")}; může jít o předání mimo EU. Bez kliknutí se nepředává nic. Odkazy na Instagram a Facebook vás po kliknutí přesměrují na tyto služby s jejich vlastními zásadami.</p>
-    <h3>5. Vaše práva</h3><p>Máte právo na přístup k údajům, jejich opravu, výmaz, omezení zpracování, námitku proti zpracování založenému na oprávněném zájmu a právo na přenositelnost údajů, pokud se na zpracování vztahuje. O zrušení rezervace nebo výmaz údajů můžete požádat na kontaktu výše. Stížnost můžete podat u dozorového úřadu: ${ext("https://uoou.gov.cz","Úřad pro ochranu osobních údajů")}, Pplk. Sochora 27, 170 00 Praha 7.</p>
-    <h3>6. Bezpečnost</h3><p>Rezervace se přenášejí šifrovaným spojením. V prohlížeči se údaje z rezervace neukládají.</p>`; },
-  cookies(){ const on = getC("cn_maps") === "1"; return `<h2 id="pTitle">Cookies</h2>
-    <p>Podle zákona o elektronických komunikacích je k ukládání informací do vašeho zařízení potřeba souhlas, s výjimkou údajů nezbytných pro provoz služby, kterou jste si vyžádali. Tento web používá jen nezbytné a funkční cookies. <b>Nepoužíváme analytiku, reklamu ani sledování.</b></p>
-    ${table(["Název","Účel","Doba","Souhlas"],[
-      ["cn_consent","Pamatuje si, že jste vzali informaci o cookies na vědomí.","180 dní","nezbytná, bez souhlasu"],
-      ["cn_theme","Pamatuje si volbu světlého nebo tmavého vzhledu. Vzniká jen po přepnutí.","180 dní","vaše volba (zapnutí přepínače)"],
-      ["cn_maps","Pamatuje si, že se má načítat mapa Google. Vzniká jen po kliknutí na „Načíst mapu Google“.","180 dní","váš souhlas (kliknutí)"]])}
-    <p>Po načtení mapy Google (třetí strana) může Google ukládat vlastní cookies a zpracovávat vaši IP adresu – viz ${ext("https://policies.google.com/privacy","zásady Google")}. Mapa se bez vašeho kliknutí nenačte.</p>
-    <p>Souhlas s mapou můžete kdykoli odvolat a cookies smazat také v nastavení prohlížeče. Odvolání je stejně snadné jako udělení.</p>
-    <div class="dlgbtns">${on ? `<button class="btn ghost" type="button" data-map="off">Odvolat souhlas s mapou</button>` : ""}<button class="btn ghost" type="button" id="reopenBar">Zobrazit lištu cookies</button></div>`; },
   podminky(){ const o = CONFIG.operator, t = CONFIG.terms; return `<h2 id="pTitle">Podmínky rezervace, reklamace a spory</h2>
     <p>Poslední aktualizace: ${UPDATED}. Tyto podmínky upravují rezervaci služeb provozovatele (${v(o.name)}) přes tento web a nejsou na újmu zákonným právům spotřebitele.</p>
     <h3>1. Rezervace</h3><p>Rezervací si vyberete službu, den a čas a zadáte jméno a kontakt. Nabízené termíny odpovídají otevírací době. Rezervaci můžete zrušit kontaktem provozovatele.</p>
@@ -874,10 +1178,10 @@ dlg.addEventListener("close", () => { openDoc = null; try{ if (/^#pravni-/.test(
 $("#lclose").onclick = closeLegal;
 dlg.addEventListener("click", e => {
   const t = e.target.closest("[data-tab]"); if (t){ openDoc = t.dataset.tab; renderLegal(); dlg.scrollTop = 0; }
-  if (e.target.id === "reopenBar"){ setC("cn_consent","",0); bar.hidden = false; closeLegal(); }
 });
 document.addEventListener("click", e => { const a = e.target.closest("[data-legal]"); if (a){ e.preventDefault(); openLegal(a.dataset.legal); } });
-const fromHash = () => { const m = /^#pravni-(provozovatel|osobni|cookies|podminky|pristupnost)$/.exec(location.hash); if (m) openLegal(m[1]); };
+const fromHash = () => { const m = /^#pravni-(provozovatel|osobni|cookies|podminky|pristupnost)$/.exec(location.hash); if (!m) return;
+  if (PAGES[m[1]]) location.replace(PAGES[m[1]]); else openLegal(m[1]); };
 addEventListener("hashchange", fromHash); fromHash();
 { const o = CONFIG.operator, id = [o.name, o.ico ? "IČO " + o.ico : ""].filter(Boolean).join(", ");
   $("#copy").textContent = `© ${new Date().getFullYear()} Cukrové nebe · Orlí 491/16, Brno${id ? " · " + id : ""}`; }

@@ -1,0 +1,69 @@
+<!-- cookie consent: banner (first in the page so keyboard users reach it first), preferences dialog, live status -->
+<section class="cn-banner" id="cn-banner" aria-labelledby="cn-title" aria-describedby="cn-desc" hidden>
+  <div class="cn-inner">
+    <div class="cn-text">
+      <h2 id="cn-title">Cookies na tomto webu</h2>
+      <p id="cn-desc">Nezbytné cookies potřebujeme, aby web fungoval, a používáme je vždy. Volitelné cookies a obsah třetích stran (mapa Google) použijeme jen s&nbsp;vaším souhlasem. Volbu můžete kdykoli změnit odkazem „Nastavení cookies“ v&nbsp;patičce. <a href="zasady-cookies.html">Zásady používání cookies</a></p>
+    </div>
+    <div class="cn-actions">
+      <button type="button" class="cn-btn" data-cn="accept">Přijmout všechny</button>
+      <button type="button" class="cn-btn" data-cn="reject">Odmítnout všechny</button>
+      <button type="button" class="cn-btn" data-cn="settings" aria-haspopup="dialog">Nastavení cookies</button>
+    </div>
+  </div>
+</section>
+
+<dialog class="cn-dialog" id="cn-dialog" aria-labelledby="cn-d-title">
+  <form id="cn-form" method="dialog">
+    <div class="cn-d-head">
+      <h2 id="cn-d-title">Nastavení cookies</h2>
+      <button type="button" class="cn-x" data-cn="close" aria-label="Zavřít nastavení cookies">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="cn-d-lead">Vyberte, s čím souhlasíte. Volitelné kategorie jsou ve výchozím stavu vypnuté. Souhlas můžete kdykoli odvolat stejně snadno, jako jste jej udělili. Podrobnosti najdete v&nbsp;<a href="zasady-cookies.html">Zásadách používání cookies</a>.</p>
+
+    <fieldset class="cn-cats">
+      <legend class="cn-sr">Kategorie cookies</legend>
+
+      <div class="cn-cat">
+        <div class="cn-cat-text">
+          <h3 id="cn-l-nec">Nezbytné</h3>
+          <p id="cn-d-nec">Zajišťují základní fungování webu a uložení vaší volby cookies a vzhledu (světlý / tmavý režim). Bez nich web nefunguje správně, proto je nelze vypnout.</p>
+        </div>
+        <label class="cn-switch"><input type="checkbox" checked disabled aria-labelledby="cn-l-nec" aria-describedby="cn-d-nec"><span class="cn-track" aria-hidden="true"></span><span class="cn-state">Vždy aktivní</span></label>
+      </div>
+
+      <div class="cn-cat">
+        <div class="cn-cat-text">
+          <h3 id="cn-l-an">Analytické</h3>
+          <p id="cn-d-an">Pomáhají měřit návštěvnost a zlepšovat web. <strong>Web v současnosti žádné analytické nástroje nepoužívá.</strong></p>
+        </div>
+        <label class="cn-switch"><input type="checkbox" name="analytics" aria-labelledby="cn-l-an" aria-describedby="cn-d-an"><span class="cn-track" aria-hidden="true"></span><span class="cn-state cn-onoff"></span></label>
+      </div>
+
+      <div class="cn-cat">
+        <div class="cn-cat-text">
+          <h3 id="cn-l-mk">Marketingové</h3>
+          <p id="cn-d-mk">Slouží k zobrazování a měření reklamy. <strong>Web v současnosti žádné marketingové nástroje nepoužívá.</strong></p>
+        </div>
+        <label class="cn-switch"><input type="checkbox" name="marketing" aria-labelledby="cn-l-mk" aria-describedby="cn-d-mk"><span class="cn-track" aria-hidden="true"></span><span class="cn-state cn-onoff"></span></label>
+      </div>
+
+      <div class="cn-cat">
+        <div class="cn-cat-text">
+          <h3 id="cn-l-map">Obsah třetích stran – mapa Google</h3>
+          <p id="cn-d-map">Načte interaktivní mapu Google v&nbsp;sekci Kontakt. Google přitom získá vaši IP adresu a údaje o prohlížeči a může ukládat vlastní cookies.</p>
+        </div>
+        <label class="cn-switch"><input type="checkbox" name="maps" aria-labelledby="cn-l-map" aria-describedby="cn-d-map"><span class="cn-track" aria-hidden="true"></span><span class="cn-state cn-onoff"></span></label>
+      </div>
+    </fieldset>
+
+    <div class="cn-d-actions">
+      <button type="button" class="cn-btn" data-cn="reject">Odmítnout všechny</button>
+      <button type="button" class="cn-btn" data-cn="save">Uložit výběr</button>
+      <button type="button" class="cn-btn" data-cn="accept">Přijmout všechny</button>
+    </div>
+  </form>
+</dialog>
+<p class="cn-sr" id="cn-status" role="status" aria-live="polite"></p>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Zásady ochrany osobních údajů – Cukrové nebe</title>
+<meta name="description" content="Jak cukrárna Cukrové nebe (Orlí 491/16, Brno) zpracovává osobní údaje návštěvníků webu a zákazníků online rezervace a jaká máte práva podle GDPR.">
+{{> legal-head.html}}
+</head>
+<body>
+{{> consent.html}}
+{{> legal-header.html}}
+
+<main id="obsah" tabindex="-1">
+  <article class="doc wrap">
+    <p class="eyebrow">Právní informace</p>
+    <h1>Zásady ochrany osobních údajů</h1>
+    <p class="lead">Tyto zásady vysvětlují, jaké osobní údaje zpracováváme při provozu webu Cukrové nebe a při vyřizování online rezervací, proč to děláme, jak dlouho údaje uchováváme a jaká máte práva. Informace poskytujeme podle čl. 13 a 14 nařízení Evropského parlamentu a Rady (EU) 2016/679 (obecné nařízení o ochraně osobních údajů, „GDPR“) a zákona č. 110/2019 Sb., o zpracování osobních údajů.</p>
+    <p class="meta">Poslední aktualizace: {{v:updated|datum aktualizace}}</p>
+
+    <nav class="toc" aria-labelledby="toc-h">
+      <h2 id="toc-h">Obsah</h2>
+      <ol>
+        <li><a href="#spravce">Správce osobních údajů</a></li>
+        <li><a href="#ucely">Jaké údaje zpracováváme, proč a na jakém základě</a></li>
+        <li><a href="#zdroje">Odkud údaje získáváme</a></li>
+        <li><a href="#prijemci">Příjemci a zpracovatelé</a></li>
+        <li><a href="#predavani">Předávání mimo EU/EHP</a></li>
+        <li><a href="#doba">Jak dlouho údaje uchováváme</a></li>
+        <li><a href="#zabezpeceni">Zabezpečení</a></li>
+        <li><a href="#prava">Vaše práva</a></li>
+        <li><a href="#stiznost">Stížnost u dozorového úřadu</a></li>
+        <li><a href="#kontakt">Kontakt pro záležitosti osobních údajů</a></li>
+        <li><a href="#zmeny">Změny těchto zásad</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="spravce">1. Správce osobních údajů</h2>
+    <p>Správcem osobních údajů je provozovatel cukrárny Cukrové nebe:</p>
+    <div class="card">
+      <dl class="idl">
+        <dt>Provozovatel</dt><dd>{{v:operator.name|jméno a příjmení podnikatele, nebo obchodní firma}}</dd>
+        <dt>Sídlo / místo podnikání</dt><dd>{{v:operator.seat|adresa sídla nebo místa podnikání}}</dd>
+        <dt>IČO</dt><dd>{{v:operator.ico|IČO}}</dd>
+        <dt>Provozovna</dt><dd>{{v:tradeName|obchodní název}}, {{v:premises|adresa provozovny}}</dd>
+        <dt>E-mail</dt><dd>{{v:operator.email|kontaktní e-mail}}</dd>
+        <dt>Telefon</dt><dd>{{v:operator.phone|telefon}}</dd>
+      </dl>
+    </div>
+    <p>{{#if privacy.dpo}}Pověřenec pro ochranu osobních údajů: {{v:privacy.dpo|kontakt na pověřence}}.{{else}}<mark class="todo">[POTVRDIT: Správce nejmenoval pověřence pro ochranu osobních údajů, protože mu tato povinnost podle čl. 37 GDPR nevzniká. Pokud pověřence jmenoval, uveďte jeho kontakt v site.json → privacy.dpo.]</mark>{{/if}}</p>
+
+    <h2 id="ucely">2. Jaké údaje zpracováváme, proč a na jakém základě</h2>
+    <p>Zpracováváme jen údaje, které jsou k danému účelu potřeba. Web nepoužívá analytické ani marketingové nástroje a neprovádí profilování ani automatizované rozhodování ve smyslu čl. 22 GDPR.</p>
+    <div class="tbl">
+      <table class="ltab">
+        <caption>Přehled zpracování</caption>
+        <thead><tr><th scope="col">Účel</th><th scope="col">Osobní údaje</th><th scope="col">Právní základ</th><th scope="col">Doba uchování</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-l="Účel"><strong>Vyřízení online rezervace</strong> (rezervace termínu přes formulář na webu, komunikace o ní, případná změna nebo zrušení)</td>
+            <td data-l="Osobní údaje">jméno, telefon nebo e-mail, zvolená služba, datum a čas, nepovinná poznámka</td>
+            <td data-l="Právní základ">čl. 6 odst. 1 písm. b) GDPR – provedení opatření přijatých před uzavřením smlouvy na vaši žádost a plnění smlouvy</td>
+            <td data-l="Doba uchování">{{v:privacy.bookingRetention|jak dlouho po termínu rezervace údaje uchováváte}}</td>
+          </tr>
+          <tr>
+            <td data-l="Účel"><strong>Odpovědi na dotazy a komunikace</strong> (zprávy přes Instagram, e-mail nebo telefon)</td>
+            <td data-l="Osobní údaje">jméno nebo uživatelské jméno, kontaktní údaje, obsah zprávy</td>
+            <td data-l="Právní základ">čl. 6 odst. 1 písm. b) GDPR, týká-li se dotaz objednávky nebo rezervace; jinak čl. 6 odst. 1 písm. f) GDPR – oprávněný zájem na vyřízení vašeho dotazu</td>
+            <td data-l="Doba uchování">{{v:privacy.contactRetention|jak dlouho uchováváte korespondenci}}</td>
+          </tr>
+          <tr>
+            <td data-l="Účel"><strong>Provoz a zabezpečení webu</strong> (technické záznamy serveru)</td>
+            <td data-l="Osobní údaje">IP adresa, datum a čas přístupu, požadovaná stránka, údaje o prohlížeči</td>
+            <td data-l="Právní základ">čl. 6 odst. 1 písm. f) GDPR – oprávněný zájem na bezpečném a funkčním provozu webu</td>
+            <td data-l="Doba uchování">{{v:privacy.hostingLogs|zda poskytovatel hostingu vede přístupové záznamy a jak dlouho je uchovává}}</td>
+          </tr>
+          <tr>
+            <td data-l="Účel"><strong>Zobrazení mapy Google</strong> – jen pokud k tomu dáte souhlas</td>
+            <td data-l="Osobní údaje">IP adresa, údaje o prohlížeči a zařízení, cookies společnosti Google</td>
+            <td data-l="Právní základ">váš souhlas – čl. 6 odst. 1 písm. a) GDPR a § 89 odst. 3 zákona č. 127/2005 Sb., o elektronických komunikacích</td>
+            <td data-l="Doba uchování">údaje získává přímo Google; provozovatel webu je neukládá (viz bod 4)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Je poskytnutí údajů povinné?</h3>
+    <p>Jméno a kontakt jsou nezbytné k přijetí a vyřízení rezervace; bez nich rezervaci přijmout nemůžeme. Poznámku vyplňujete dobrovolně. Do poznámky prosím neuvádějte údaje o svém zdraví ani jiné citlivé údaje. Informace o alergenech v našich výrobcích vám rádi sdělíme osobně nebo na vyžádání.</p>
+
+    <h3>Údaje uložené jen ve vašem prohlížeči</h3>
+    <p>Vaši volbu cookies (včetně času, kdy jste ji provedli) a volbu světlého nebo tmavého vzhledu web ukládá pouze ve vašem prohlížeči. Tyto údaje se nám neodesílají. Rezervační formulář údaje v prohlížeči neukládá. Podrobnosti najdete v <a href="zasady-cookies.html">Zásadách používání cookies</a>.</p>
+
+    <h2 id="zdroje">3. Odkud údaje získáváme</h2>
+    <p>Údaje získáváme přímo od vás – z rezervačního formuláře nebo ze zpráv, které nám pošlete. Technické záznamy vznikají automaticky při návštěvě webu. Údaje spojené se zobrazením mapy získává přímo společnost Google, a to pouze po vašem souhlasu.</p>
+
+    <h2 id="prijemci">4. Příjemci a zpracovatelé</h2>
+    <p>Osobní údaje neprodáváme a nepředáváme je k reklamním účelům. Údaje mohou získat tito příjemci:</p>
+    <ul>
+      {{#if booking.endpoint}}<li><strong>Služba pro příjem rezervací:</strong> {{v:booking.endpointProvider|název a sídlo poskytovatele služby, přes kterou formulář odesílá rezervace}}. Údaje z rezervačního formuláře zpracovává jako náš zpracovatel podle čl. 28 GDPR.</li>{{else}}<li><strong>Odeslání rezervace přes Instagram:</strong> rezervační formulář na webu údaje nikam neodesílá. Po potvrzení se text rezervace zkopíruje ve vašem zařízení a rezervaci nám odešlete sami zprávou přes Instagram. Instagram provozuje společnost Meta Platforms Ireland Limited, která obsah zpráv zpracovává jako samostatný správce podle <a href="https://privacycenter.instagram.com/policy" rel="noopener noreferrer">vlastních zásad</a>. Pokud nám rezervaci raději sdělíte e-mailem nebo telefonicky, Instagram se zpracování neúčastní.</li>{{/if}}
+      <li><strong>Poskytovatel hostingu:</strong> {{v:privacy.hosting|název a sídlo poskytovatele hostingu webu}} – zajišťuje provoz webu a zpracovává technické záznamy jako náš zpracovatel.</li>
+      <li><strong>Google (mapa):</strong> pokud udělíte souhlas s načtením mapy, získá Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irsko, vaši IP adresu a údaje o prohlížeči a může ukládat vlastní cookies. Tyto údaje zpracovává jako samostatný správce podle <a href="https://policies.google.com/privacy?hl=cs" rel="noopener noreferrer">zásad ochrany soukromí Google</a>. Bez souhlasu se mapa nenačte a Googlu se nic nepředává.</li>
+      <li><strong>Odkazy na sociální sítě:</strong> odkazy na náš Instagram a Facebook jsou obyčejné odkazy. Dokud na ně nekliknete, nepředávají se sítím žádné údaje. Po kliknutí se řídí zpracování zásadami daných služeb.</li>
+      <li><strong>Orgány veřejné moci</strong>, pokud nám to ukládá právní předpis (např. soudy nebo orgány činné v trestním řízení).</li>
+    </ul>
+
+    <h2 id="predavani">5. Předávání mimo EU/EHP</h2>
+    <p>Sami osobní údaje do zemí mimo Evropskou unii a Evropský hospodářský prostor nepředáváme. Společnosti Google a Meta (provozovatel Instagramu) mohou údaje, které získají jako samostatní správci, předávat do USA. Podle jejich informací se přitom opírají o rozhodnutí Evropské komise o odpovídající ochraně pro rámec ochrany údajů mezi EU a USA (EU–US Data Privacy Framework) ze dne 10. 7. 2023, případně o standardní smluvní doložky. {{#if booking.endpoint}}<mark class="todo">[POTVRDIT: zda poskytovatel služby pro příjem rezervací předává údaje mimo EU/EHP a na jakém základě.]</mark>{{/if}}</p>
+
+    <h2 id="doba">6. Jak dlouho údaje uchováváme</h2>
+    <p>Údaje uchováváme jen po dobu uvedenou v přehledu v bodě 2. Poté je smažeme nebo anonymizujeme, ledaže je musíme uchovávat déle kvůli povinnosti stanovené právním předpisem (např. účetní nebo daňové), nebo kvůli uplatnění či obhajobě právních nároků – v takovém případě jen po nezbytnou dobu a jen v nezbytném rozsahu.</p>
+
+    <h2 id="zabezpeceni">7. Zabezpečení</h2>
+    <p>Přijímáme přiměřená technická a organizační opatření, aby nedošlo k neoprávněnému přístupu k údajům, jejich ztrátě nebo zneužití. Web nevede uživatelské účty a neukládá údaje z rezervačního formuláře v prohlížeči. K údajům z rezervací mají přístup jen osoby, které je potřebují k vyřízení rezervace. <mark class="todo">[POTVRDIT: web je dostupný výhradně přes zabezpečené připojení HTTPS.]</mark></p>
+
+    <h2 id="prava">8. Vaše práva</h2>
+    <p>V souvislosti se zpracováním osobních údajů máte tato práva:</p>
+    <ul>
+      <li><strong>Právo na přístup</strong> (čl. 15 GDPR) – můžete zjistit, zda vaše údaje zpracováváme, a získat jejich kopii a informace o zpracování.</li>
+      <li><strong>Právo na opravu</strong> (čl. 16 GDPR) – můžete požádat o opravu nepřesných nebo doplnění neúplných údajů.</li>
+      <li><strong>Právo na výmaz</strong> (čl. 17 GDPR) – můžete požádat o smazání údajů, pokud již nejsou potřeba, odvoláte souhlas, vznesete důvodnou námitku nebo jsou zpracovávány protiprávně.</li>
+      <li><strong>Právo na omezení zpracování</strong> (čl. 18 GDPR) – například po dobu, kdy ověřujeme přesnost údajů nebo vaši námitku.</li>
+      <li><strong>Právo na přenositelnost</strong> (čl. 20 GDPR) – u údajů, které jste nám poskytli a které zpracováváme automatizovaně na základě smlouvy nebo souhlasu, můžete získat jejich kopii ve strukturovaném, běžně používaném a strojově čitelném formátu nebo žádat o jejich předání jinému správci.</li>
+      <li><strong>Právo vznést námitku</strong> (čl. 21 GDPR) – proti zpracování založenému na našem oprávněném zájmu. Údaje pak dále nezpracováváme, pokud neprokážeme závažné oprávněné důvody, které převažují nad vašimi zájmy, nebo pokud zpracování nepotřebujeme k uplatnění či obhajobě právních nároků.</li>
+      <li><strong>Právo odvolat souhlas</strong> (čl. 7 odst. 3 GDPR) – souhlas (např. s načtením mapy Google) můžete kdykoli odvolat přes <button type="button" class="inline-btn" data-cn-open aria-haspopup="dialog">Nastavení cookies</button>. Odvolání nemá vliv na zákonnost zpracování před ním.</li>
+    </ul>
+    <p>Žádosti vyřizujeme bez zbytečného odkladu, nejpozději do jednoho měsíce od obdržení. S ohledem na složitost a počet žádostí lze tuto lhůtu prodloužit o další dva měsíce; o prodloužení vás budeme informovat (čl. 12 odst. 3 GDPR). Vyřízení je zpravidla bezplatné. Abychom údaje nevydali nesprávné osobě, můžeme vás požádat o ověření totožnosti.</p>
+
+    <h2 id="stiznost">9. Stížnost u dozorového úřadu</h2>
+    <p>Pokud se domníváte, že zpracováním porušujeme právní předpisy, máte právo podat stížnost u dozorového úřadu (čl. 77 GDPR). V České republice je jím <strong>Úřad pro ochranu osobních údajů</strong>, Pplk. Sochora 27, 170 00 Praha 7, <a href="https://uoou.gov.cz" rel="noopener noreferrer">uoou.gov.cz</a>. Budeme rádi, když se na nás nejprve obrátíte přímo – vaši žádost se pokusíme vyřešit.</p>
+
+    <h2 id="kontakt">10. Kontakt pro záležitosti osobních údajů</h2>
+    <p>Své žádosti a dotazy nám můžete poslat e-mailem na {{v:operator.email|kontaktní e-mail}}, dopisem na adresu sídla {{v:operator.seat|adresa sídla nebo místa podnikání}}, nebo je uplatnit osobně v provozovně {{v:premises|adresa provozovny}}.</p>
+
+    <h2 id="zmeny">11. Změny těchto zásad</h2>
+    <p>Zásady aktualizujeme, pokud se změní způsob zpracování osobních údajů nebo právní předpisy. Aktuální znění je vždy zveřejněno na této stránce; datum poslední aktualizace najdete v jejím záhlaví.</p>
+
+    {{#if operator.ico}}{{else}}<p class="todo-note"><strong>Před zveřejněním:</strong> údaje označené [DOPLNIT] a [POTVRDIT] musí doplnit nebo potvrdit provozovatel (soubor <code>src/site.json</code>). Text doporučujeme nechat zkontrolovat odborníkem na ochranu osobních údajů.</p>{{/if}}
+  </article>
+</main>
+
+{{> legal-footer.html}}
+</body>
+</html>

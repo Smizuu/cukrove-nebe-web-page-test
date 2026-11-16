@@ -1,0 +1,16 @@
+<footer>
+  <div class="wrap">
+    {{> footer-links.html}}
+    <p>© {{v:tradeName|obchodní název}} · {{v:premises|adresa provozovny}}{{#if operator.ico}} · IČO {{v:operator.ico|IČO}}{{/if}}</p>
+  </div>
+</footer>
+<script>
+/* mark the current legal page in the footer */
+(function () {
+  var here = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".legalnav a").forEach(function (a) {
+    if (a.getAttribute("href") === here) a.setAttribute("aria-current", "page");
+  });
+})();
+</script>
+<script>{{> consent.js}}</script>

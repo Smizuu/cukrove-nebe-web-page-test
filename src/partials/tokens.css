@@ -1,0 +1,18 @@
+/* design tokens shared by every page – Calm Seasons palette (dark = autumn evening) */
+:root{--cream:#fcf9f1;--dark:#3b3226;--ease:cubic-bezier(.22,1,.36,1);
+--script:"DejaVu Serif",Georgia,"Times New Roman",serif;--sans:"DejaVu Sans",Verdana,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+--r-arch:999px 999px 22px 22px;--r-leaf:30px 6px 30px 6px;--r-leaf2:6px 30px 6px 30px;--r-bubble:26px 26px 26px 6px;--r-soft:20px;
+--sh-lift:0 22px 34px -24px rgba(var(--shadow),.55);--sh-sticker:6px 6px 0 var(--tint-sage);--sh-sticker-clay:6px 6px 0 var(--tint-clay)}
+/* Calm Seasons – dark = autumn evening */
+:root,:root[data-theme=dark]{color-scheme:dark;
+ --bg:#262820;--bg2:#20231b;--band:#2d2a22;--card:#32352a;--line:#4f5242;--ink:#f4edda;--mute:#cfc8b0;--headline:#fbf3df;
+ --pink:#e6a07a;--btn-ink:#26241c;--coral:#eeb08e;--accent:#e2b66c;--blue:#a9bf8b;--header:rgba(38,40,32,.93);--glass-tint:rgba(38,40,32,.38);--glass-top:rgba(255,255,255,.07);--glass-hi:rgba(255,255,255,.16);--glass-edge:rgba(255,255,255,.10);--glass-sh:rgba(0,0,0,.55);--fog:.05;--chip:rgba(255,255,255,.07);--map:#20231b;
+ --tint-sage:#3d4533;--tint-clay:#4a3a2c;--ring:rgba(226,182,108,.45);--shadow:0,0,0;--h1span:#e6a07a;
+ --hero-bg:radial-gradient(900px 440px at 88% -5%,rgba(230,160,122,.2),transparent 62%),radial-gradient(760px 420px at 0 105%,rgba(169,191,139,.15),transparent 60%);
+ --book-bg:linear-gradient(180deg,#262820,#3a3427 300%)}
+:root[data-theme=light]{color-scheme:light;
+ --bg:#f5f0e4;--bg2:#e6ead7;--band:#f1e1d3;--card:#fcf9f1;--line:#dcd3bd;--ink:#3b3226;--mute:#665d4d;--headline:#4a3b28;
+ --pink:#d98a62;--btn-ink:#34281c;--coral:#8f4426;--accent:#9a4a2b;--blue:#4f6f50;--header:rgba(245,240,228,.94);--glass-tint:rgba(252,249,241,.34);--glass-top:rgba(255,255,255,.45);--glass-hi:rgba(255,255,255,.85);--glass-edge:rgba(255,255,255,.6);--glass-sh:rgba(70,55,30,.22);--fog:.3;--chip:rgba(255,255,255,.35);--map:#e9e5d2;
+ --tint-sage:#cfd9bb;--tint-clay:#ecc9b2;--ring:rgba(154,74,43,.4);--shadow:70,55,30;--h1span:#b9582f;
+ --hero-bg:radial-gradient(900px 440px at 88% -5%,rgba(217,138,98,.24),transparent 62%),radial-gradient(760px 420px at 0 105%,rgba(127,148,103,.26),transparent 60%);
+ --book-bg:linear-gradient(180deg,#f5f0e4,#e2e7cf 300%)}

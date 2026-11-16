@@ -1,0 +1,62 @@
+/* ===================== cookie consent ===================== */
+.cn-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.cn-banner{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;padding:0;max-width:880px;margin-inline:auto;background:var(--cream);color:var(--dark);
+  border-radius:20px;box-shadow:0 18px 50px -12px rgba(0,0,0,.55),0 0 0 1px rgba(80,64,36,.12);font:15px/1.5 var(--sans)}
+.cn-banner[hidden]{display:none}
+.cn-inner{display:flex;flex-direction:column;gap:14px;padding:18px 20px}
+.cn-banner h2,.cn-dialog h2{font:700 1.08rem/1.3 var(--sans);margin:0 0 4px;color:var(--dark)}
+.cn-banner p{margin:0;color:#4a4033}
+.cn-banner a,.cn-dialog a{color:#9a4a2b}
+.cn-actions{display:flex;flex-wrap:wrap;gap:8px}
+/* all choices look exactly the same: accepting is not easier than refusing */
+.cn-btn{flex:1 1 0;min-width:max-content;min-height:44px;padding:10px 18px;border-radius:999px;border:1.5px solid #8a7b62;background:#fff;color:var(--dark);
+  font:700 .95rem/1.2 var(--sans);cursor:pointer;transition:background-color .2s,border-color .2s,transform .18s var(--ease)}
+.cn-btn:hover{border-color:#9a4a2b;background:#f6e3d6}
+.cn-btn:active{transform:scale(.97)}
+.cn-btn:focus-visible,.cn-x:focus-visible,.cn-switch input:focus-visible+.cn-track{outline:3px solid #4f6f50;outline-offset:2px}
+.cn-banner a:focus-visible,.cn-dialog a:focus-visible{outline:3px solid #4f6f50;outline-offset:2px;border-radius:3px}
+
+.cn-dialog{border:0;border-radius:22px;padding:0;width:calc(100% - 24px);max-width:640px;max-height:90vh;overflow:auto;background:var(--cream);color:var(--dark);font:15px/1.5 var(--sans)}
+.cn-dialog::backdrop{background:rgba(0,0,0,.55)}
+.cn-dialog form{padding:20px 22px 22px}
+.cn-d-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.cn-x{flex:none;display:grid;place-items:center;width:44px;height:44px;margin:-8px -8px 0 0;border-radius:50%;border:0;background:transparent;color:var(--dark);cursor:pointer}
+.cn-x:hover{background:#efe6d2}
+.cn-x svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.cn-d-lead{margin:6px 0 14px;color:#4a4033}
+.cn-cats{border:0;margin:0;padding:0;display:grid;gap:10px}
+.cn-cat{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;background:#fff;border:1.5px solid #e3dac4;border-radius:16px;padding:14px 16px}
+.cn-cat h3{font:700 1rem/1.3 var(--sans);margin:0 0 2px}
+.cn-cat p{margin:0;font-size:.9rem;color:#5a5040}
+.cn-cat strong{font-weight:600;color:var(--dark)}
+.cn-switch{flex:none;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;min-width:72px;padding-top:2px}
+.cn-switch input{position:absolute;opacity:0;width:52px;height:30px;margin:0;cursor:pointer}
+.cn-track{position:relative;display:block;width:52px;height:30px;border-radius:999px;background:#cfc5ad;transition:background-color .2s}
+.cn-track::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .25s var(--ease)}
+.cn-switch input:checked+.cn-track{background:#4f6f50}
+.cn-switch input:checked+.cn-track::after{transform:translateX(22px)}
+.cn-switch input:disabled{cursor:not-allowed}
+.cn-switch input:disabled+.cn-track{background:#7d8f6e;opacity:.75}
+.cn-state{font-size:.75rem;font-weight:600;color:#5a5040;white-space:nowrap}
+.cn-onoff::after{content:"Vypnuto"}
+.cn-switch input:checked~.cn-onoff::after{content:"Zapnuto"}
+.cn-d-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+
+/* the floating "book" button must not cover the banner */
+html.cn-open .fab{display:none!important}
+
+@media (max-width:640px){
+  .cn-banner{left:8px;right:8px;bottom:8px;border-radius:18px;font-size:14px}
+  .cn-inner{padding:14px 14px 12px;gap:10px}
+  .cn-actions{flex-direction:column}
+  .cn-btn{width:100%}
+  .cn-dialog form{padding:16px 14px 16px}
+  .cn-cat{padding:12px}
+  .cn-d-actions{flex-direction:column}
+}
+@media (prefers-reduced-motion:no-preference){
+  .cn-banner:not([hidden]){animation:cn-up .45s var(--ease) both}
+  .cn-dialog[open]{animation:cn-pop .25s var(--ease) both}
+}
+@keyframes cn-up{from{opacity:0;transform:translate3d(0,24px,0)}to{opacity:1;transform:none}}
+@keyframes cn-pop{from{opacity:0;transform:translate3d(0,10px,0) scale(.98)}to{opacity:1;transform:none}}

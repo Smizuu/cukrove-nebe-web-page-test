@@ -1,0 +1,39 @@
+{
+  "_help": "Údaje provozovatele pro web a právní stránky. Prázdné položky se na webu zobrazí jako zvýrazněné [DOPLNIT …]. Po úpravě spusťte: python3 build.py",
+  "tradeName": "Cukrové nebe",
+  "premises": "Orlí 491/16, 602 00 Brno",
+  "instagram": "https://www.instagram.com/cukrove_nebe/",
+  "instagramHandle": "@cukrove_nebe",
+  "facebook": "https://www.facebook.com/cukrovenebe/",
+  "updated": "16. 11. 2026",
+  "operator": {
+    "name": "",
+    "legalForm": "",
+    "seat": "",
+    "ico": "",
+    "dic": "",
+    "registration": "",
+    "email": "",
+    "phone": "",
+    "dataBox": "",
+    "supervision": ""
+  },
+  "privacy": {
+    "dpo": "",
+    "bookingRetention": "",
+    "contactRetention": "",
+    "hosting": "",
+    "hostingLogs": ""
+  },
+  "booking": {
+    "endpoint": "",
+    "endpointProvider": "",
+    "cancelEndpoint": ""
+  },
+  "terms": {
+    "pricing": "",
+    "payment": "",
+    "cancellation": "",
+    "allergens": ""
+  }
+}
