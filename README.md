@@ -1,4 +1,4 @@
-# Cukrové nebe – web
+# Cukrové nebe – web link: https://smizuu.github.io/cukrove-nebe-web-page-test/
 
 One-page website for the Cukrové nebe cukrárna (Orlí 491/16, Brno) with online booking, legal pages and cookie consent.
 
